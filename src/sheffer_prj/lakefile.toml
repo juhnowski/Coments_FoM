@@ -1,0 +1,10 @@
+name = "sheffer_prj"
+version = "0.1.0"
+defaultTargets = ["sheffer_prj"]
+
+[[lean_lib]]
+name = "ShefferPrj"
+
+[[lean_exe]]
+name = "sheffer_prj"
+root = "Main"

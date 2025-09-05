@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.9.4)  5 SEP 2025 02:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.9.4)  5 SEP 2025 10:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -971,11 +971,11 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/up' in size <6> not available
 \pydata@fh@_FFC88B4CA90A355F8DDBA6B2C3B2AF5C.data.minted=\write5
 \openout5 = `_FFC88B4CA90A355F8DDBA6B2C3B2AF5C.data.minted'.
 
-runsystem(latexminted config  --timestamp 20250905025742 FFC88B4CA90A355F8DDBA6
+runsystem(latexminted config  --timestamp 20250905105330 FFC88B4CA90A355F8DDBA6
 B2C3B2AF5C)...executed safely (allowed).
 
  (./_FFC88B4CA90A355F8DDBA6B2C3B2AF5C.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250905025742 FFC88B4CA90A355F8
+runsystem(latexminted cleanconfig  --timestamp 20250905105330 FFC88B4CA90A355F8
 DDBA6B2C3B2AF5C)...executed safely (allowed).
 
 
@@ -1097,10 +1097,16 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 386.
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 433--436
-[]\T2A/cmr/m/n/12 Russell, B., & Whitehead, A. N. (1910--1913). \T2A/cmr/m/it/1
-2 Principia Mathematica\T2A/cmr/m/n/12 .
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 419.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\supset' on input line 419.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 419.
 
 
 
@@ -1109,14 +1115,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.436 \end{thebibliography}
-                           
+l.424     \]
+            
 pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.436 \end{thebibliography}
-                           ]
+l.424     \]
+            ]
+Underfull \hbox (badness 1688) in paragraph at lines 439--442
+[]\T2A/cmr/m/n/12 Russell, B., & Whitehead, A. N. (1910--1913). \T2A/cmr/m/it/1
+2 Principia Mathematica\T2A/cmr/m/n/12 .
+ []
+
+
 
 [9] (./part1.aux)
  ***********
@@ -1130,12 +1142,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `part1.out' has not changed.
-(rerunfilecheck)             Checksum: 55C97D8C0CE0DB68A1D6FB685A5B7F24;4500.
+
+Package rerunfilecheck Warning: File `part1.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `part1.out':
+(rerunfilecheck)             Before: 55C97D8C0CE0DB68A1D6FB685A5B7F24;4500
+(rerunfilecheck)             After:  FEC418CE9EABEB7DA7EE7B01D5D8962C;4664.
  ) 
 Here is how much of TeX's memory you used:
- 20149 strings out of 473197
- 364684 string characters out of 5718606
+ 20151 strings out of 473197
+ 364710 string characters out of 5718606
  880980 words of memory out of 5000000
  43054 multiletter control sequences out of 15000+600000
  575597 words of font info for 81 fonts, out of 8000000 for 9000
@@ -1151,10 +1169,10 @@ share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/ty
 pe1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/
 sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on part1.pdf (9 pages, 252286 bytes).
+Output written on part1.pdf (9 pages, 252806 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
- 192 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 49 named destinations out of 1000 (max. 500000)
  185 words of extra memory for PDF output out of 10000 (max. 10000000)
 
