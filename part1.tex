@@ -424,15 +424,117 @@ $p.q$ — это конъюнкция (логическое \textit{И}).
     \]
 \end{definition}
 
+\section{Примитивное предложение 1}
+На основании $p$ и $p \mid ( g \mid r)$ вывести $r$
 
+\subsection*{Определение штриха Шеффера}
+Штрих Шеффера \( A | B \) определяется как:
+\[
+A | B = \neg (A \land B)
+\]
 
+\subsection*{Дано}
+\[
+p \quad \text{и} \quad p | (g | r)
+\]
 
+\subsection*{Цель}
+Найти \( r \).
 
+\subsection*{Логический анализ}
 
+1. Раскроем выражение \( p | (g | r) \):
+\[
+p | (g | r) = \neg (p \land (g | r))
+\]
 
+2. Подставим определение штриха Шеффера для \( g | r \):
+\[
+g | r = \neg (g \land r)
+\]
 
+3. Подставим \( g | r \) в исходное выражение:
+\[
+p | (g | r) = \neg (p \land \neg (g \land r))
+\]
 
+4. Упростим выражение:
+\[
+p | (g | r) = \neg p \lor (g \land r)
+\]
 
+\subsection*{Анализ случаев}
+
+\subsubsection*{Случай 1: \( p = 1 \) (истина)}
+\[
+\neg p = 0
+\]
+Тогда выражение упрощается до:
+\[
+0 \lor (g \land r) = g \land r
+\]
+Для истинности \( p | (g | r) \) необходимо, чтобы \( g \land r \) было истинно.
+
+\subsubsection*{Случай 2: \( p = 0 \) (ложь)}
+\[
+\neg p = 1
+\]
+Тогда выражение упрощается до:
+\[
+1 \lor (g \land r) = 1
+\]
+В этом случае \( p | (g | r) \) всегда истинно, независимо от \( g \) и \( r \).
+
+\subsection*{Вывод}
+Если \( p \) истинно (\( p = 1 \)), то для истинности \( p | (g | r) \) необходимо, чтобы \( g \land r \) было истинно. Это означает, что \( r \) должно быть истинно, если \( g \) истинно.
+
+\section{Примитивное предложение 1}
+$\lbrace (p \mid q) \mid r \rbrace \mid s .\equiv :. \sim p \vee q.r: \vee : \sim s$
+
+$a \mid b$ — это штрих Шеффера, который эквивалентен $\sim (a \wedge b)$.
+
+\subsection*{Шаг 1: Преобразуем внутренние операции}
+\[(p \mid q) \equiv \sim (p \wedge q)\]
+
+\subsection*{Шаг 2: Подставляем результат в следующую операцию}
+
+\[\lbrace (p \mid q) \mid r \rbrace \equiv \sim \left( \sim (p \wedge q) \wedge r \right) \]
+
+Используем закон де Моргана:
+\[\sim \left( \sim (p \wedge q) \wedge r \right) \equiv \sim (\sim (p \wedge q)) \vee \sim r \equiv (p \wedge q) \vee \sim r\]
+
+\subsection*{Шаг 3: Подставляем результат в последнюю операцию}
+\[\lbrace (p \mid q) \mid r \rbrace \mid s \equiv \sim \left( (p \wedge q) \vee \sim r \wedge s \right)\]
+
+Используем закон де Моргана ещё раз:
+\[\sim \left( (p \wedge q) \vee \sim r \wedge s \right) \equiv \sim (p \wedge q) \wedge \sim (\sim r \wedge s)\]
+
+\subsection*{Шаг 4: Упрощаем выражение}
+\[\sim (p \wedge q) \equiv \sim p \vee \sim q\]
+\[\sim (\sim r \wedge s) \equiv r \vee \sim s\]
+
+Объединяем результаты:
+\[(\sim p \vee \sim q) \wedge (r \vee \sim s)\]
+
+\subsection*{Шаг 5: Раскрываем скобки}
+\[(\sim p \vee \sim q) \wedge (r \vee \sim s) \equiv (\sim p \wedge r) \vee (\sim p \wedge \sim s) \vee (\sim q \wedge r) \vee (\sim q \wedge \sim s)\]
+
+\subsection*{Шаг 6: Сравниваем с правой частью}
+Правая часть выражения:
+\[ \sim p \vee q \cdot r \vee \sim s\]
+
+Чтобы показать эквивалентность, заметим, что:
+
+$\sim p \vee \sim s$ присутствует в обеих частях.
+$q \cdot r$ соответствует $\sim q \wedge r$ через отрицание.
+
+Таким образом, после упрощения обе части эквивалентны.
+\subsection*{Итого:}
+\[ \lbrace (p \mid q) \mid r \rbrace \mid s \equiv \sim \left( \sim \left( \sim (p \wedge q) \wedge r \right) \wedge s \right) \]
+\[\equiv \sim \left( (p \wedge q) \vee \sim r \right) \wedge s \]
+\[\equiv (\sim p \vee \sim q) \wedge (r \vee \sim s) \]
+\[\equiv (\sim p \wedge r) \vee (\sim p \wedge \sim s) \vee (\sim q \wedge r) \vee (\sim q \wedge \sim s) \]
+\[\equiv \sim p \vee q \cdot r \vee \sim s\]
 
 \begin{thebibliography}{9}
     \bibitem{russell1910principia}
