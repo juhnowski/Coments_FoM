@@ -1,0 +1,438 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{pdfpages}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{mathtext}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{revsymb}
+\usepackage{minted}
+\usepackage{tabularx} % Для равномерной ширины столбцов 
+\usepackage{geometry} % Для настройки полей
+\usepackage{amsthm} % Для создания окружений типа "определение"
+\newtheorem{definition}{Определение}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\urlstyle{same}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
+\setcounter{MaxMatrixCols}{20}
+\graphicspath{{pictures/}}
+
+%\geometry{
+%    a4paper,
+%    left=20mm,   % Левое поле
+%    right=20mm,  % Правое поле
+%    top=20mm,    % Верхнее поле
+%    bottom=20mm  % Нижнее поле
+%}
+
+
+\title{\textbf{Комментарии к основаниям математики \\
+	Commentary on the Foundations of Mathematics}}
+\author{И.А.Юхновский}
+\date{Сентябрь 2025}
+    
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\section*{Аннотация}
+Комментарии к основаниям математики
+
+\section*{Abstract}
+Commentary on the Foundations of Mathematics
+
+\section{Субъект (Subject)}
+Субъект — это то, о чём что-то утверждается в предложении.
+В классической логике субъект — это носитель свойств или отношений.
+
+В контексте Principia Mathematica субъект часто ассоциируется с переменными или индивидуальными объектами, которые могут быть аргументами функций или предикатов.
+
+Например, в высказывании \textit{Socrates — человек}  \textit{Socrates — субъект}.
+
+\section{Объект (Object)}
+Объект — это то, что утверждается о субъекте, или то, на что направлено действие/отношение.
+В Principia Mathematica объект может быть:
+\begin{itemize}
+\item  Конкретным индивидуальным объектом (например, число, множество).
+\item  Функцией, предикатом или отношением (например, свойство \textit{быть человеком}).
+\end{itemize}
+
+\section{Ключевое различие между субъектом и объектом}
+\begin{itemize} 
+\item  Субъект — это то, что подставляется в логическое высказывание (например, переменная или индивид).
+\item  Объект — это то, о чём или с чем оперирует высказывание (например, свойство, множество, функция).
+\end{itemize} 
+
+В теории типов Рассела и Уайтхеда объекты делятся на иерархию типов, чтобы избежать самоприменимости (например, "множество всех множеств, не содержащих себя").
+
+\section{Примеры}
+
+\subsection{Простое высказывание (предикатная логика)}
+\subsubsection{Пример 1}
+Высказывание: x принадлежит множеству A 
+
+В математической записи:
+\[x \in A\]
+
+В формальной записи:
+\begin{minted}{haskell}
+A(x)
+\end{minted}
+
+Здесь:
+\begin{itemize} 
+ \item \textit{x} - субъект (индивидуальный объект). 
+ \item \textit{A} - объект (множество, которое является объектом, о котором утверждается принадлежность).
+\end{itemize} 
+
+\subsubsection{Пример 2}
+Высказывание:\textit{Сократ — человек}
+
+В формальной записи:
+\begin{minted}{haskell}
+Человек(Сократ)
+\end{minted}
+
+Здесь:
+\begin{itemize} 
+ \item \textit{Сократ} — субъект (индивидуальный объект, о котором идёт речь).
+ \item \textit{Человек} — объект (предикат, который приписывается субъекту).
+\end{itemize} 
+
+\subsection{Отношения между объектами}
+Высказывание: \textit{Афины больше Спарты}
+
+В формальной записи:
+\begin{minted}{haskell}
+Больше(Афины, Спарта)
+\end{minted}
+
+Здесь:
+\begin{itemize} 
+ \item \textit{Афины} и \textit{Спарта} — субъекты (аргументы).
+ \item \textit{Больше} — объект
+\end{itemize} 
+
+\section{Почему это важно?}
+Разделение на субъект и объект помогает:
+\begin{itemize} 
+	\item Избежать парадоксов (например, парадокса Рассела: "множество всех множеств, не содержащих себя").
+
+	\item Построить строгую логическую систему, где каждый объект имеет определённый тип и не может быть сам себе субъектом и объектом одновременно.
+\end{itemize} 
+
+\section{Парадокс Рассела}
+Формально парадокс Рассела можно записать следующим образом:
+Обозначим через $R$ множество всех множеств, которые не содержат сами себя в качестве элемента:
+\[R = \lbrace x | x \notin x \rbrace\]
+Теперь зададим вопрос: принадлежит ли $R$ само себе?
+
+\begin{itemize} 
+ \item Если $R \in R$, то по определению $R$ должно удовлетворять условию $R \notin R$.
+ \item Если $R \notin R$, то $R$ удовлетворяет условию $R \in R$.
+\end{itemize} 
+
+Таким образом, оба утверждения приводят к противоречию:
+
+\[ R \in R \Leftrightarrow R \notin R \]
+
+\subsection{Решение Рассела и Уайтхеда}
+Ввести иерархию типов, чтобы субъект и объект всегда принадлежали разным типам. 
+
+Например:
+\begin{itemize} 
+ \item Множество $x$ — тип 0.
+ \item Множество множеств (например, $R$) — тип 1.
+ \item Множество множеств множеств — тип 2, и так далее.
+\end{itemize} 
+
+Теперь $x \in x$ запрещено, так как $x$ не может быть одновременно субъектом и объектом одного и того же типа.
+
+\section{Атомарные предложения}
+Список вариантов из необработанных предложений, требуемых в доказательствах, может быть сведен к списку истинных атомарных предложений вместе с положением о том, что каждое истинное атомарное предложение есть одно из следующих:
+\begin{itemize} 
+ \item \textit{p},
+ \item \textit{q},
+ \item \textit{r},
+ \item \textit{s},
+ \item \textit{t}.
+\end{itemize} 
+
+\subsection{Типы атомарных предложений}
+\begin{itemize} 
+ \item $R_1(x)$ - субъект $x$ имеет предикатом $R_1$
+ \item $R_2(x,y)$ - субъект $x$ находится в отношении $R_2$ (интенсионально) с субъектом $y$
+ \item $R_3(x,y,z)$ - субъекты $x,y,z$ находятся в трехместном тернарном отношении $R_3$ (интенсионально)
+  \item $R_4(x,y,z,w)$ - субъекты $x,y,z,w$ находятся в четырехместном тернарном отношении $R_4$ (интенсионально)
+\end{itemize}
+
+\subsection{Интенсионально}
+В логике и философии термин «интенсионально» (от англ. intensional) относится к контекстам, в которых значение выражения зависит не только от его экстенсионала (объекта, на который оно указывает), но и от способа задания этого объекта, его смысла или описания.
+
+\begin{table}[h]
+    \centering
+    \caption{Интенсиональность vs. Экстенсиональность}
+    \label{tab:equalwidth}
+    \begin{tabularx}{\textwidth}{|X|X|}
+        \hline
+        \textbf{Интенсиональность} & \textbf{Экстенсиональность} \\
+        \hline
+        Значение зависит от смысла, описания или способа представления объекта. & Значение зависит только от объекта, на который ссылается выражение. \\
+        \hline
+        Примеры: убеждения, желания, модальные операторы ("возможно", "необходимо"), временные контексты ("вчера", "завтра"). & Примеры: простые утверждения о фактах ("Москва — столица России"). \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+
+\subsubsection{Примеры интенсиональных контекстов}
+
+
+\textbf{Убеждения и знания:}
+
+\begin{itemize} 
+ \item \textit{Он верит, что утренняя звезда — это Венера.}
+ \item \textit{Он верит, что вечерняя звезда — это Венера.}
+\end{itemize} 
+
+В обоих случаях речь идёт об одном и том же объекте (Венере), но убеждения могут различаться, если \textit{Он} не знает, что \textit{утренняя звезда} и \textit{вечерняя звезда} — это одно и то же.
+
+\textbf{Модальные операторы:}
+
+\begin{itemize} 
+ \item \textit{Необходимо, что 2 + 2 = 4.} (Истинно)
+ \item \textit{Необходимо, что количество планет в Солнечной системе — 8.} (Ложно, так как это факт, а не логическая необходимость)
+\end{itemize} 
+
+
+\textbf{Контрафактуальные утверждения:}
+
+\begin{itemize} 
+ \item \textit{Если бы я был президентом, я бы изменил законы.} (Истина зависит от контекста, а не от реального положения дел)
+\end{itemize} 
+
+
+\section{Молекулярные предложения}
+\textit{p,q,r,s,t} - простые пропозициональные буквы.
+\subsection{Пропозиция}
+Пропозиция — это логическое суждение, которое может быть истинным или ложным.
+
+Пропозиции являются основными "кирпичиками" логики и математики.
+Они не зависят от языка, на котором выражены (в отличие от предложений естественного языка).
+
+В современной логике пропозиции соответствуют высказываниям в логике высказываний или формулам в логике предикатов. Они лежат в основе формальных систем, используемых в математике, информатике и философии.
+
+\begin{itemize} 
+ \item \textit{2 + 2 = 4} — это пропозиция (истинная).
+ \item \textit{Снег зелёный} — это пропозиция (ложная).
+ \item \textit{Закрой дверь!} — не пропозиция, так как это не суждение, а команда.
+\end{itemize}
+
+\subsection{p|q}
+$\mid$ - штрих-символ Шеффера.
+\begin{table}[h]
+    \centering
+    \caption{Таблица истинности для $p \mid q$}
+    \label{tab:equalwidth}
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{$p$} & \textbf{$q$} & \textbf{$p \mid q$}\\
+        \hline
+        0 & 0 & 1 \\
+        \hline
+        0 & 1 & 1 \\
+        \hline
+        1 & 0 & 1 \\
+        \hline
+        1 & 1 & 0 \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+Истинно, когда хотя бы одно (или оба одновременно) из атомарных высказываний будет ложным.
+
+$p \mid q$ означает, что:
+\begin{itemize} 
+ \item \textit{p несовместно q}
+ \item \textit{p ложно или q ложно}
+ \item \textit{p влечет не q} 
+ \item \textit{p штрих q} 
+\end{itemize}
+
+%\begin{equation}
+%
+%\end{equation}
+
+\subsection{Отрицание $\sim p$}
+\begin{definition}[Df]
+    \[
+       \sim p.=.p \mid p 
+    \]
+\end{definition}
+
+\begin{itemize} 
+ \item \textit{Не p}
+ \item \textit{Отрицание p равно по определению штриху Шеффера p с самим собой.}
+\end{itemize}
+
+\begin{table}[h]
+    \centering
+    \caption{Таблица истинности для $p \sim p $}
+    \label{tab:equalwidth}
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{$p$} & \textbf{$\sim p$} & \textbf{$p \mid p$}\\
+        \hline
+        0 & 1 & 1 \\
+        \hline
+        1 & 0 & 0 \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\subsection{Импликация $p \supset q$}
+
+\begin{definition}[Df]
+    \[
+       p \supset q .=. p \mid \sim q 
+    \]
+\end{definition}
+
+\begin{itemize} 
+ \item \textit{Если p, то q}
+ \item \textit{p влечёт q}
+\end{itemize}
+ 
+Если утверждение $p$ истинно, то утверждение $q$ также должно быть истинным.
+
+В классической логике импликация ложна только в одном случае: когда $p$ истинно, а $q$ ложно.
+
+\begin{table}[h]
+    \centering
+    \caption{Таблица истинности для $p \supset q$}
+    \label{tab:equalwidth}
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{$p$} & \textbf{$q$} & \textbf{$p \supset q$}\\
+        \hline
+        0 & 0 & 1 \\
+        \hline
+        0 & 1 & 1 \\
+        \hline
+        1 & 0 & 0 \\
+        \hline
+        1 & 1 & 1 \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\begin{itemize} 
+ \item 1 — это "истина" (англ. true). Это означает, что высказывание истинно, верно или выполняется.
+ \item 0 — это "ложь" (англ. false). Это означает, что высказывание ложно, неверно или не выполняется.
+\end{itemize}
+
+\subsubsection{Примеры}
+
+\begin{itemize} 
+ \item Если $p$ — \textit{идёт дождь}, а $q$ — \textit{земля мокрая}, то $p \supset q$ читается как \textit{Если идёт дождь, то земля мокрая.}
+
+ \item В математических доказательствах $p \supset q$ может означать \textit{Из p следует q}.
+ 
+\end{itemize}
+
+\subsection{Дизъюнкция $p \vee q$}
+
+\begin{definition}[Df]
+    \[
+       p \vee q .=. \sim p \mid \sim q 
+    \]
+\end{definition}
+
+$p \vee q$ — это дизъюнкция (логическое \textit{ИЛИ}.
+
+Читается как \textit{p или q}.
+
+\begin{table}[h]
+    \centering
+    \caption{Таблица истинности для $p \vee q$}
+    \label{tab:equalwidth}
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{$p$} & \textbf{$q$} & \textbf{$p \vee q$}\\
+        \hline
+        0 & 0 & 0 \\
+        \hline
+        0 & 1 & 1 \\
+        \hline
+        1 & 0 & 1 \\
+        \hline
+        1 & 1 & 1 \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+Истинно, если хотя бы одно из высказываний \textit{p} или \textit{q} истинно.
+
+\subsection{Конъюнкция $p.q$}
+
+\begin{definition}[Df]
+    \[
+       p.q .=. \sim (p \mid q) 
+    \]
+\end{definition}
+
+$p.q$ — это конъюнкция (логическое \textit{И}).
+
+Читается как "p и q".
+
+\begin{table}[h]
+    \centering
+    \caption{Таблица истинности для $p.q$}
+    \label{tab:equalwidth}
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{$p$} & \textbf{$q$} & \textbf{$p.q$}\\
+        \hline
+        0 & 0 & 0 \\
+        \hline
+        0 & 1 & 0 \\
+        \hline
+        1 & 0 & 0 \\
+        \hline
+        1 & 1 & 1 \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+Истинно, только если оба высказывания $p$ и $q$ истинны.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thebibliography}{9}
+    \bibitem{russell1910principia}
+    Russell, B., \& Whitehead, A. N. (1910--1913).
+    \textit{Principia Mathematica}.
+    Cambridge University Press.
+\end{thebibliography}
+
+\end{document}
